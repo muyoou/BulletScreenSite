@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BulletScreenService</title>
+	<!-- 新 Bootstrap4 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+ 
+<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+ 
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="Manage.js"></script>
+</head>
+<body>
+	<div class="row" style="background-color:ghostwhite;height: 65px;">
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+	</div>
+	<div class="row" style="">
+		<div class="col-1"></div>
+		<div class="col-10">
+			<div style="float: right;width: 300px;height: 200px;background-color:ghostwhite;margin-top: 20px;"></div>
+			<div style="position: absolute;right: 320px;left: 0px;padding: 20px; ">
+				<div style="width: 100%;background-color: beige;">
+					<div id="bullet" style="position: absolute;overflow: hidden;">
+					</div>
+					<video width="100%" id="invideo" controls>
+  						<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div style="width: 100%;height: 50px;background-color:ghostwhite;padding-left: 10px;padding-right: 10px;">
+					<form>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">设置</span>
+      </div>
+      <input type="text" class="form-control">
+		<div class="input-group-append">
+      <button class="btn btn-success" type="submit">发送</button>  
+     </div>
+    </div>
+  </form>
+				</div>
+				<div style="width: 100%;padding-top: 10px;font-size: 20px;">《無色覺醒》 賴岳謙 ｜金正恩備好耶誕禮！川普喊話小心後果！｜20191215</div>
+				<div style="font-size: 15px;color: gray">40,174次观看•2019年12月14日</div>
+				<hr>
+			</div>
+			
+		
+		</div>
+		<div class="col-1"></div>
+	</div>
+</body>
+</html>
+<style>
+	.bullet{
+		position: absolute;
+		width: fit-content;
+		color: white;
+		font-size: 20px; 
+		text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black;
+	}
+</style>
