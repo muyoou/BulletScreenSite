@@ -1,10 +1,15 @@
 // JavaScript Document
-	
-	vwidth=0;
-	all=new Array();
-	all2=new Array();
-	ColorIndex=["white","red","blue","gray","green"]
+var xmlhttp;
+if (window.XMLHttpRequest)
+{xmlhttp=new XMLHttpRequest();}
+else
+{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}// JavaScript Document
+vwidth=0;
+all=new Array();
+all2=new Array();
+ColorIndex=["white","red","blue","gray","green"]
  $(document).ready(function(){
+	SendBullet("nid",1,1)
 	var video = $("#invideo")
 	var bull=$("#bullet");
 	vwidth=video.width();
@@ -43,6 +48,20 @@
 		}
 	})
 });
+
+function SendBullet(data,pos,color){
+	xmlhttp.onreadystatechange=function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			console.log("连接成功");
+		}else{
+			console.log("State="+xmlhttp.readyState+"code="+xmlhttp.status)
+		}
+	}
+	xmlhttp.open("POST","http://163.44.168.27:2048",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	var text='data='+data+'&pos='+pos+'&color='+color;
+	xmlhttp.send(text);
+}
 
 function resetSize(){
 	vwidth=$("#invideo").width()
