@@ -16,7 +16,16 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="Manage.js"></script>
 </head>
-<body>
+
+<body> 
+	
+	<div id="SucAlert" class="alert alert-success" style="position:fixed;top: 10px;left: 10px;display:none;">
+    	<strong>弹幕已发送</strong> &emsp;
+	</div> 
+	
+	
+	
+	
 	<div class="row" style="background-color:ghostwhite;height: 65px;">
 		<div class="col-1"></div>
 		<div class="col-1"></div>
@@ -35,14 +44,18 @@
 					</video>
 				</div>
 				<div style="width: 100%;height: 50px;background-color:ghostwhite;padding-left: 10px;padding-right: 10px;">
-					<form>
+					
+					<div style="width: 20%;float: left;margin-top: 10px;" class="text-muted">
+						弹幕数量：200
+					</div>
+					<form style="width: 80%;float: right">
     <div class="input-group mb-3">
-      <div class="input-group-prepend">
+      <div class="input-group-prepend" id="bulletset">
         <span class="input-group-text">设置</span>
       </div>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" id="bulletText">
 		<div class="input-group-append">
-      <button class="btn btn-success" type="submit">发送</button>  
+      <div class="btn btn-success" id="send">发送</div>  
      </div>
     </div>
   </form>
@@ -56,13 +69,84 @@
 		</div>
 		<div class="col-1"></div>
 	</div>
-</body>
+	
+	<div id="pand" style="position: absolute;top: 200px;
+    left: 120px;
+    background-color: black;
+    color: white;
+    padding: 10px;width: 160px;
+    height: 200px;opacity: 0.8;
+				font-size: 13px;">
+   	<div >
+           <b> 弹幕发送设置</b>
+    </div>
+		<div>模式</div>
+    	<div class="bulletmode" id="choosed" data-m=1>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="width: 30px"><path d="M23 3H5a4 4 0 00-4 4v14a4 4 0 004 4h18a4 4 0 004-4V7a4 4 0 00-4-4zM11 9h6a1 1 0 010 2h-6a1 1 0 010-2zm-3 2H6V9h2v2zm4 4h-2v-2h2v2zm9 0h-6a1 1 0 010-2h6a1 1 0 010 2z" ></path></svg>
+			滚动
+    	</div>
+		<div class="bulletmode" data-m=2>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="width: 30px"><path d="M23 3H5a4 4 0 00-4 4v14a4 4 0 004 4h18a4 4 0 004-4V7a4 4 0 00-4-4zM9 9H7V7h2v2zm4 0h-2V7h2v2zm4 0h-2V7h2v2zm4 0h-2V7h2v2z" ></path></svg>
+			顶部
+		</div>
+		<div class="bulletmode" data-m=3>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="width: 30px"><path d="M23 3H5a4 4 0 00-4 4v14a4 4 0 004 4h18a4 4 0 004-4V7a4 4 0 00-4-4zM9 21H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"  ></path></svg>
+			底部
+		</div>
+		<div style="float: left;width: 100%">颜色</div>
+		<div class="colorlump float-left" style="background-color:red" data-c=1></div>
+		<div class=" float-left colorlump" style="background-color:orangered" data-c=2></div>
+		<div class="float-left colorlump" style="background-color:orange" data-c=3></div>
+		<div class="float-left colorlump" style="background-color:gold" data-c=4></div>
+		<div class="float-left colorlump" style="background-color:yellow" data-c=5></div>
+		<div class="float-left colorlump" style="background-color:greenyellow" data-c=6></div>
+		<div class="float-left colorlump" style="background-color:green" data-c=7></div>
+		<div class="float-left colorlump" style="background-color:blue" data-c=8></div>
+		<div class="float-left colorlump" style="background-color:darkblue" data-c=9></div>
+		<div class="float-left colorlump" style="background-color:deepskyblue" data-c=10></div>
+		<div class="float-left colorlump" style="background-color:grey" data-c=11></div>
+		<div class="float-left colorlump" id="cosecolor" style="background-color:white" data-c=0></div>
+	</div>
+	
+</body> 
 </html>
 <style>
+	.bulletmode{
+		float: left;
+		width: 29%;
+	}
+	
+	.bulletmode path{
+		fill:white;
+	}
+	
+	#choosed{
+		color: cornflowerblue;
+	}
+	#choosed path{
+		fill: cornflowerblue;
+	}
+	
+	
+	#cosecolor{
+border-color: gold;
+    border-width: 2px;
+    border-style: outset;
+	}
+	
+	.colorlump{
+		width: 13px;
+    height: 13px;
+		    margin: 5px;
+	}
+
 	.bullet{
 		position: absolute;
 		width: fit-content;
-		font-size: 20px; 
+		font-size: 22px; 
 		text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black;
+	}
+	#mybullet{
+		text-decoration: underline;
 	}
 </style>
